@@ -1,0 +1,26 @@
+{
+  "name": "vue-mixins",
+  "description": "collection of mixins in vue",
+  "version": "0.0.1",
+  "homepage": "https://github.com/paulpflug/",
+  "author": {
+    "name": "Paul Pflugradt",
+    "email": "paul.pflugradt@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paulpflug/vue-mixins"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "vue-compiler": "0.0.1"
+  },
+  "keywords": [],
+  "readmeFilename": "README.md",
+  "scripts": {
+  }
+}
