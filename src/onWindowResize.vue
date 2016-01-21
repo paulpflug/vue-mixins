@@ -18,9 +18,9 @@ module.exports =
           window.requestAnimationFrame @callResizeCbs
         else
           setTimeout @callResizeCbs, 66
-    callResizeCbs: ->
+    callResizeCbs: (e) ->
       for cb in @resizeCbs
-        cb()
+        cb(e)
       @resizeRunning = false
   compiled: ->
     window.addEventListener "resize", @resizeHandler

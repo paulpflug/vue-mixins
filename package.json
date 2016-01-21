@@ -7,6 +7,7 @@
     "name": "Paul Pflugradt",
     "email": "paul.pflugradt@gmail.com"
   },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/paulpflug/vue-mixins"
@@ -22,5 +23,6 @@
   "keywords": [],
   "readmeFilename": "README.md",
   "scripts": {
+    "patch": "npm version patch;npm publish;git push;git push --tags"
   }
 }

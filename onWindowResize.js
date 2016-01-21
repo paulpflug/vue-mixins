@@ -28,12 +28,12 @@ module.exports = {
         }
       }
     },
-    callResizeCbs: function() {
+    callResizeCbs: function(e) {
       var cb, i, len, ref;
       ref = this.resizeCbs;
       for (i = 0, len = ref.length; i < len; i++) {
         cb = ref[i];
-        cb();
+        cb(e);
       }
       return this.resizeRunning = false;
     }
