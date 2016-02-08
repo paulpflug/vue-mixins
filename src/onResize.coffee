@@ -1,4 +1,4 @@
-# out: ../onResize.coffee
+# out: ../onResize.js
 resizeRunning = false
 allResizeCbs = []
 resizeHandler = ->
