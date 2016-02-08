@@ -1,5 +1,4 @@
-// out: ..
-<script lang="coffee">
+# out: ../onClick.js
 module.exports =
   data: ->
     onClick: null
@@ -7,4 +6,3 @@ module.exports =
     click: (e) ->
       if @onClick?
         @onClick(e)
-</script>

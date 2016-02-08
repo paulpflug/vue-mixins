@@ -1,5 +1,4 @@
-// out: ..
-<script lang="coffee">
+# out: ../onClickStack.js
 module.exports =
   data: ->
     onClickStack: []
@@ -11,6 +10,5 @@ module.exports =
         if index > -1
           @onClickStack.splice index,1
     click: (e) ->
-      if @onClickStack.length >= 1
+      if @onClickStack.length > 0
         @onClickStack[@onClickStack.length-1](e)
-</script>
