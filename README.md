@@ -30,7 +30,7 @@ components:
 | onceDocument | adds a eventListener to the document which removes itself after first successful call|
 | onClick  | adds a method `click` which will call the function `onClick` if set |
 | onClickStack  | adds two methods: `click` and `addToClickStack` |
-| onClickStore  | adds two methods: `click` and `onClickStore` |
+| onClickStore  | adds two methods: `click` and `onClick` (see below) |
 | onDocument  | like `onceDocument` but doesn't removes itself |
 | onResize | fires on resize of window or element |
 | setCss | set Css of another element |
