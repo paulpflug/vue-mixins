@@ -1,4 +1,4 @@
-# out: ../onResize.js
+# out: ../onWindowResize.js
 resizeRunning = false
 allResizeCbs = []
 resizeHandler = ->
@@ -9,22 +9,18 @@ resizeHandler = ->
     else
       setTimeout callResizeCbs, 66
 callResizeCbs = (e) ->
+  console.log "resize"
   for cb in allResizeCbs
     cb(e)
   resizeRunning = false
 window.addEventListener "resize", resizeHandler
-observer = new MutationObserver resizeHandler
-observer.observe document.body,
-  attributes: true
-  childList: true
-  characterData: true
-  subtree: true
+
 
 module.exports =
   data: ->
     resizeCbDisposables: []
   methods:
-    addResizeCb: (cb) ->
+    onWindowResize: (cb) ->
       allResizeCbs.push cb
       dispose = ->
         index = allResizeCbs.indexOf cb

@@ -43,12 +43,24 @@
       };
     },
     methods: {
-      addResizeCb: function(cb) {
-        var dispose;
-        allResizeCbs.push(cb);
+      onElementResize: function(el, cb) {
+        var cbwrapper, dispose, elheight, elwidth;
+        if (el == null) {
+          return;
+        }
+        elheight = el.offsetHeight;
+        elwidth = el.offsetWidth;
+        cbwrapper = function(e) {
+          if (elheight !== el.offsetHeight || elwidth !== el.offsetWidth) {
+            elheight = el.offsetHeight;
+            elwidth = el.offsetWidth;
+            return cb(e);
+          }
+        };
+        allResizeCbs.push(cbwrapper);
         dispose = function() {
           var index;
-          index = allResizeCbs.indexOf(cb);
+          index = allResizeCbs.indexOf(cbwrapper);
           if (index > -1) {
             return allResizeCbs.splice(index, 1);
           }

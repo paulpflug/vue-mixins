@@ -1,7 +1,7 @@
 {
   "name": "vue-mixins",
   "description": "collection of mixins in vue",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/paulpflug/",
   "author": {
     "name": "Paul Pflugradt",
@@ -16,11 +16,30 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "vue-compiler": "0.0.1"
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.10.0",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-chai-dom": "^1.1.0",
+    "karma-chai-spies": "^0.1.4",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-mocha": "^0.2.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.24",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "vue": "^1.0.16",
+    "webpack": "^1.12.13"
   },
   "keywords": [],
   "readmeFilename": "README.md",
   "scripts": {
+    "build": "coffee --no-header --compile --output . src/*.coffee",
+    "watch": "karma start --browsers Chrome --auto-watch --reporters spec",
+    "test": "karma start --single-run",
     "patch": "npm version patch;npm publish;git push;git push --tags"
   }
 }

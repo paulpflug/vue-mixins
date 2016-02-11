@@ -1,5 +1,5 @@
 (function() {
-  var allResizeCbs, callResizeCbs, observer, resizeHandler, resizeRunning;
+  var allResizeCbs, callResizeCbs, resizeHandler, resizeRunning;
 
   resizeRunning = false;
 
@@ -18,6 +18,7 @@
 
   callResizeCbs = function(e) {
     var cb, i, len;
+    console.log("resize");
     for (i = 0, len = allResizeCbs.length; i < len; i++) {
       cb = allResizeCbs[i];
       cb(e);
@@ -27,15 +28,6 @@
 
   window.addEventListener("resize", resizeHandler);
 
-  observer = new MutationObserver(resizeHandler);
-
-  observer.observe(document.body, {
-    attributes: true,
-    childList: true,
-    characterData: true,
-    subtree: true
-  });
-
   module.exports = {
     data: function() {
       return {
@@ -43,7 +35,7 @@
       };
     },
     methods: {
-      addResizeCb: function(cb) {
+      onWindowResize: function(cb) {
         var dispose;
         allResizeCbs.push(cb);
         dispose = function() {

@@ -17,10 +17,11 @@ setCss = (el, name, value) ->
   else if value? and value != ""
     css = {}
     css[name] = value
-  if css? and css.hasOwnProperty()
-    cssString = ""
+  cssString = ""
+  if css?
     for name,value of css
       cssString += "#{name}:#{value};"
+  if cssString
     el.setAttribute("style", cssString)
   else
     el.removeAttribute("style")

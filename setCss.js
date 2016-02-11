@@ -27,12 +27,14 @@
       css = {};
       css[name] = value;
     }
-    if ((css != null) && css.hasOwnProperty()) {
-      cssString = "";
+    cssString = "";
+    if (css != null) {
       for (name in css) {
         value = css[name];
         cssString += name + ":" + value + ";";
       }
+    }
+    if (cssString) {
       return el.setAttribute("style", cssString);
     } else {
       return el.removeAttribute("style");

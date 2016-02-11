@@ -1,13 +1,13 @@
 # vue-mixins
 
 A collection of mixins in vue.
-Mainly used to replace `jQuery` in **vue-materialize**.
+Mainly used to replace `jQuery` in [**vue-materialize**](https://github.com/paulpflug/vue-materialize).
 
 Designed for [**webpack**](https://webpack.github.io/) workflows.
 
 ## Policy
 
-all sorts of mixins can be submitted. There will be no deprecation. If the API of a mixin changes the name has to change, for example `onResize` -> `onResize2`
+all sorts of mixins can be submitted. There will be no removes because of deprecation. If the API of a mixin changes the name has to change, for example `onResize` -> `onResize2`
 
 ## Install
 
@@ -34,10 +34,12 @@ components:
 | onClickStore  | |
 | onDocument  | like `onceDocument` but doesn't removes itself |
 | onDocumentClick  | like `onceDocumentClick` but doesn't removes itself |
-| onResize | fires on resize of window or element |
+| onResize | deprecated |
+| onWindowResize | fires on resize of window |
+| onElementResize | fires on resize of window or element, but only if the dimensions of the element changed |
 | setCss | set Css of another element |
 
-## Examples
+## Detailed usage
 ### getViewportSize
 ```js
 // adds a method:
@@ -109,14 +111,24 @@ dispose = this.onClickStore(cb)
 ### onDocument
 like `onceDocument`, but doesn't remove itself on first successful invokation.
 
-### onResize
+### onWindowResize
 ```js
-// adds a method: addResizeCb(cb) which will return a function to dispose it
+// adds a method: onWindowResize(cb) which will return a function to dispose it
 // usage:
-dispose = this.addResizeCb(function(){/*doSomethingOnResize;*/});
+dispose = this.onWindowResize(function(){/*doSomethingOnElementResize;*/});
 // remove your cb
 dispose();
 ```
+
+### onElementResize
+```js
+// adds a method: onElementResize(cb) which will return a function to dispose it
+// usage:
+dispose = this.onElementResize(function(){/*doSomethingOnElementResize;*/});
+// remove your cb
+dispose();
+```
+
 
 ### setCss
 ```js
@@ -129,8 +141,23 @@ this.setCss(document.body,"overflow","hidden");
 this.setCss(document.body,"overflow");
 // or
 this.setCss(document.body,"overflow", "");
-
 ```
+
+## Develop
+Clone rep
+```
+npm install
+```
+Available scripts:
+```
+npm run build # compiles coffee-script in src/
+npm run test # runs a single-run karma in chrome and firefox
+npm run watch # runs karma in chrome (uses src/*.coffee files direclty, no need for build)
+
+# to run only single tests:
+karma start --browsers Chrome --auto-watch --reporters spec --files ['test/onClick.coffee']
+```
+
 ## License
 Copyright (c) 2015 Paul Pflugradt
 Licensed under the MIT license.

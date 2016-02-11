@@ -1,4 +1,4 @@
-# out: ../onResize.js
+# out: ../onElementResize.js
 resizeRunning = false
 allResizeCbs = []
 resizeHandler = ->
@@ -24,10 +24,18 @@ module.exports =
   data: ->
     resizeCbDisposables: []
   methods:
-    addResizeCb: (cb) ->
-      allResizeCbs.push cb
+    onElementResize: (el,cb) ->
+      return unless el?
+      elheight = el.offsetHeight
+      elwidth = el.offsetWidth
+      cbwrapper = (e) ->
+        if elheight != el.offsetHeight or elwidth != el.offsetWidth
+          elheight = el.offsetHeight
+          elwidth = el.offsetWidth
+          cb(e)
+      allResizeCbs.push cbwrapper
       dispose = ->
-        index = allResizeCbs.indexOf cb
+        index = allResizeCbs.indexOf cbwrapper
         if index > -1
           allResizeCbs.splice index,1
       @resizeCbDisposables.push dispose
