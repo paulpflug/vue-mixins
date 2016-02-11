@@ -27,13 +27,11 @@ components:
 | Name | description |
 | ---: |  ------- |
 | getViewportSize | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
-| onceDocument | adds a eventlistener to the document which removes itself after first call|
-| onceDocumentClick | like `onceDocument` for the event `click`|
+| onceDocument | adds a eventListener to the document which removes itself after first successful call|
 | onClick  | adds a method `click` which will call the function `onClick` if set |
 | onClickStack  | adds two methods: `click` and `addToClickStack` |
-| onClickStore  | |
+| onClickStore  | adds two methods: `click` and `onClick` (see below) |
 | onDocument  | like `onceDocument` but doesn't removes itself |
-| onDocumentClick  | like `onceDocumentClick` but doesn't removes itself |
 | onResize | deprecated |
 | onWindowResize | fires on resize of window |
 | onElementResize | fires on resize of window or element, but only if the dimensions of the element changed |
