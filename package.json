@@ -40,6 +40,8 @@
     "build": "coffee --no-header --compile --output . src/*.coffee",
     "watch": "karma start --browsers Chrome --auto-watch --reporters spec",
     "test": "karma start --single-run",
-    "patch": "npm version patch;npm publish;git push;git push --tags"
+    "preversion":"npm test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags && npm run publish"
   }
 }
