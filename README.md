@@ -120,9 +120,9 @@ dispose();
 
 ### onElementResize
 ```js
-// adds a method: onElementResize(cb) which will return a function to dispose it
+// adds a method: onElementResize(el, cb) which will return a function to dispose it
 // usage:
-dispose = this.onElementResize(function(){/*doSomethingOnElementResize;*/});
+dispose = this.onElementResize(el, function(){/*doSomethingOnElementResize;*/});
 // remove your cb
 dispose();
 ```

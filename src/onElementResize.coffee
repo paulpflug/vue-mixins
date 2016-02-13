@@ -25,7 +25,7 @@ module.exports =
     resizeCbDisposables: []
   methods:
     onElementResize: (el,cb) ->
-      return unless el?
+      return unless cb?
       elheight = el.offsetHeight
       elwidth = el.offsetWidth
       cbwrapper = (e) ->

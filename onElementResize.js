@@ -45,7 +45,7 @@
     methods: {
       onElementResize: function(el, cb) {
         var cbwrapper, dispose, elheight, elwidth;
-        if (el == null) {
+        if (cb == null) {
           return;
         }
         elheight = el.offsetHeight;
