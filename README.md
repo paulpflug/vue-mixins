@@ -3,8 +3,6 @@
 A collection of mixins in vue.
 Mainly used to replace `jQuery` in [**vue-materialize**](https://github.com/paulpflug/vue-materialize).
 
-Designed for [**webpack**](https://webpack.github.io/) workflows.
-
 ## Policy
 
 all sorts of mixins can be submitted. There will be no removes because of deprecation. If the API of a mixin changes the name has to change, for example `onResize` -> `onResize2`
@@ -13,14 +11,19 @@ all sorts of mixins can be submitted. There will be no removes because of deprec
 
 ```sh
 npm install --save-dev vue-mixins
-
 ```
+or include `bundle.js`
 ## Usage
 ```coffee
 ## whithin your module
 components:
   mixins:[
     require("vue-mixins/onClick")
+  ]
+# if you have used the bundle.js
+components:
+  mixins:[
+    window.vueMixins.onClick
   ]
 ```
 ## List of mixins
