@@ -9,12 +9,10 @@ resizeHandler = ->
     else
       setTimeout callResizeCbs, 66
 callResizeCbs = (e) ->
-  console.log "resize"
   for cb in allResizeCbs
     cb(e)
   resizeRunning = false
 window.addEventListener "resize", resizeHandler
-
 
 module.exports =
   data: ->

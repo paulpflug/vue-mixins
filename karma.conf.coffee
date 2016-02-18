@@ -12,7 +12,7 @@ module.exports = (config) ->
     webpackMiddleware:
       noInfo: true
     files: ["test/*.coffee"]
-    frameworks: ["mocha","chai-dom","chai-spies","chai"]
+    frameworks: ["mocha","chai-dom","chai-spies","chai","vue-component"]
     plugins: [
       require("karma-chai")
       require("karma-chai-dom")
@@ -23,5 +23,6 @@ module.exports = (config) ->
       require("karma-sourcemap-loader")
       require("karma-spec-reporter")
       require("karma-chai-spies")
+      require("karma-vue-component")
     ]
     browsers: ["Chrome","Firefox"]

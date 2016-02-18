@@ -18,7 +18,6 @@
 
   callResizeCbs = function(e) {
     var cb, i, len;
-    console.log("resize");
     for (i = 0, len = allResizeCbs.length; i < len; i++) {
       cb = allResizeCbs[i];
       cb(e);
