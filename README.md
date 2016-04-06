@@ -39,6 +39,8 @@ components:
 | onWindowResize | fires on resize of window |
 | onElementResize | fires on resize of window or element, but only if the dimensions of the element changed |
 | setCss | set Css of another element |
+| dynamicCss | dynamically manipulate css stylesheet |
+| getVue | gets the instance of `Vue` |
 
 ## Detailed usage
 ### getViewportSize
@@ -142,6 +144,30 @@ this.setCss(document.body,"overflow","hidden");
 this.setCss(document.body,"overflow");
 // or
 this.setCss(document.body,"overflow", "");
+```
+
+### dynamicCss
+```js
+// used to create a stylesheet and set rules in it.
+// adds a method:
+// setCssRules(newRules)
+// usage:
+this.setCssRules({body: {overflow: "hidden"}})
+// to remove a rule:
+this.setCssRules({body: {overflow: null}})
+// nesting:
+this.setCssRules({body: {"& div": {width: "10px"},overflow:"hidden"}})
+// is short for: (& will be replaced by the parent selector)
+// deeper nesting is allowed
+this.setCssRules({body: {overflow:"hidden"},"body div": {width: "10px"}})
+```
+
+### getVue
+```js
+// adds a method:
+// getVue()
+// usage:
+Vue = this.getVue()
 ```
 
 ## Develop
