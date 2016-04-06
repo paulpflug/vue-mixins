@@ -1,5 +1,7 @@
 vueMixins = {
+  dynamicCss: require('./dynamicCss.js'),
   getViewportSize: require('./getViewportSize.js'),
+  getVue: require('./getVue.js'),
   onceDocument: require('./onceDocument.js'),
   onClick: require('./onClick.js'),
   onClickStack: require('./onClickStack.js'),
