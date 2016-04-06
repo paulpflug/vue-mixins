@@ -2,7 +2,3 @@ node_modules
 *.sublime-project
 *.sublime-workspace
 npm-debug.log
-build
-*.js
-!index.js
-!webpack.config.js
