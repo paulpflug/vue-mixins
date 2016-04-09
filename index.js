@@ -10,6 +10,9 @@ vueMixins = {
   onElementResize: require('./onElementResize.js'),
   onWindowResize: require('./onWindowResize.js'),
   setCss: require('./setCss.js'),
+  getViewportOffset: require('./getViewportOffset.js'),
+  isOpened: require('./isOpened.js'),
+  parentListener: require('./parentListener.js'),
 }
 if (module.exports != null){
   module.exports = vueMixins

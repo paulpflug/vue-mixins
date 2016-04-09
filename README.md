@@ -1,7 +1,7 @@
 # vue-mixins
 
 A collection of mixins in vue.
-Mainly used to replace `jQuery` in [**vue-materialize**](https://github.com/paulpflug/vue-materialize).
+Heavily used in [**vue-comps**](https://github.com/vue-comps).
 
 ## Policy
 
@@ -29,18 +29,20 @@ components:
 ## List of mixins
 | Name | description |
 | ---: |  ------- |
-| getViewportSize | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
-| onceDocument | adds a eventListener to the document which removes itself after first successful call|
-| onClick  | adds a method `click` which will call the function `onClick` if set |
-| onClickStack  | adds two methods: `click` and `addToClickStack` |
-| onClickStore  | adds two methods: `click` and `onClick` (see below) |
-| onDocument  | like `onceDocument` but doesn't removes itself |
-| onResize | deprecated |
-| onWindowResize | fires on resize of window |
-| onElementResize | fires on resize of window or element, but only if the dimensions of the element changed |
-| setCss | set Css of another element |
-| dynamicCss | dynamically manipulate css stylesheet |
-| getVue | gets the instance of `Vue` |
+| [getViewportSize](https://github.com/paulpflug/vue-mixins/blob/master/src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
+| [onceDocument](https://github.com/paulpflug/vue-mixins/blob/master/src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
+| [onClick](https://github.com/paulpflug/vue-mixins/blob/master/src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set |
+| [onClickStack](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
+| [onClickStore](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below) |
+| [onDocument](https://github.com/paulpflug/vue-mixins/blob/master/src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself |
+| [onResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onResize.coffee) | deprecated |
+| [onWindowResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onWindowResize.coffee) | fires on resize of window |
+| [onElementResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
+| [setCss](https://github.com/paulpflug/vue-mixins/blob/master/src/setCss.coffee) | set Css of another element |
+| [dynamicCss](https://github.com/paulpflug/vue-mixins/blob/master/src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
+| [getVue](https://github.com/paulpflug/vue-mixins/blob/master/src/getVue.coffee) | gets the instance of `Vue` |
+| [isOpened](https://github.com/paulpflug/vue-mixins/blob/master/src/isOpened.coffee) | adds everything for opened state management |
+| [parentListener](https://github.com/paulpflug/vue-mixins/blob/master/src/parentListener.coffee) | hooks a function upon parent click |
 
 ## Detailed usage
 ### getViewportSize
