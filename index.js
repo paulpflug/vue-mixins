@@ -9,6 +9,7 @@ vueMixins = {
   onDocument: require('./onDocument.js'),
   onElementResize: require('./onElementResize.js'),
   onWindowResize: require('./onWindowResize.js'),
+  onWindowScroll: require('./onWindowScroll.js'),
   setCss: require('./setCss.js'),
   getViewportOffset: require('./getViewportOffset.js'),
   isOpened: require('./isOpened.js'),
