@@ -8,6 +8,7 @@
     "email": "paul.pflugradt@gmail.com"
   },
   "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/paulpflug/vue-mixins"
@@ -21,21 +22,21 @@
     "chai-spies": "^0.7.1",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.10.0",
-    "karma": "^0.13.19",
+    "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-chai-dom": "^1.1.0",
     "karma-chai-spies": "^0.1.4",
-    "karma-chrome-launcher": "^0.2.2",
+    "karma-chrome-launcher": "^0.2.3",
     "karma-firefox-launcher": "^0.1.7",
     "karma-mocha": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.24",
+    "karma-spec-reporter": "0.0.26",
     "karma-vue-component": "^0.1.0",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "script-runner": "^0.1.4",
-    "vue": "^1.0.16",
-    "webpack": "^1.12.13"
+    "vue": "^1.0.21",
+    "webpack": "^1.12.15"
   },
   "keywords": [],
   "readmeFilename": "README.md",
