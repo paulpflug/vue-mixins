@@ -3,14 +3,15 @@ resizeRunning = false
 allResizeCbs = []
 resizeHandler = ->
   unless resizeRunning
+    args = arguments
     resizeRunning = true
     if window.requestAnimationFrame
-      window.requestAnimationFrame callResizeCbs
+      window.requestAnimationFrame -> callResizeCbs.apply(null,args)
     else
-      setTimeout callResizeCbs, 66
-callResizeCbs = (e) ->
+      setTimeout (-> callResizeCbs.apply(null,args)), 66
+callResizeCbs = ->
   for cb in allResizeCbs
-    cb(e)
+    cb.apply(null,arguments)
   resizeRunning = false
 window.addEventListener "resize", resizeHandler
 

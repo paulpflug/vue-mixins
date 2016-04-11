@@ -38,6 +38,7 @@ components:
 |[onResize](https://github.com/paulpflug/vue-mixins#onresize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onResize.coffee) | deprecated |
 |[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onWindowResize.coffee) | fires on resize of window |
 |[onElementResize](https://github.com/paulpflug/vue-mixins#onelementresize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
+|[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onWindowScroll.coffee) | fires on scroll on window |
 |[setCss](https://github.com/paulpflug/vue-mixins#setcss) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/setCss.coffee) | set Css of another element |
 |[dynamicCss](https://github.com/paulpflug/vue-mixins#dynamiccss) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
 |[getVue](https://github.com/paulpflug/vue-mixins#getvue) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/getVue.coffee) | gets the instance of `Vue` |
@@ -51,7 +52,7 @@ components:
 // getViewportSize()
 //
 // usage:
-vs = this.getViewportSize();
+vs = this.getViewportSize()
 vs.width
 vs.height
 ```
@@ -65,7 +66,7 @@ dispose = this.onceDocument('click',function(e){
   doSomething()
   // return true will remove the listener
   // return false will not remove the listener
-  },false);
+  },false)
 dispose() // will remove the listener
 ```
 ### onClick
@@ -126,9 +127,10 @@ like `onceDocument`, but doesn't remove itself on first successful invokation.
 // adds a method: onWindowResize(cb) which will return a function to dispose it
 //
 // usage:
-dispose = this.onWindowResize(function(){/*doSomethingOnElementResize;*/});
+dispose = this.onWindowResize(function(){/*doSomethingOnWindowResize*/})
 // remove your cb
-dispose();
+dispose()
+// all events will be automatically disposed on `beforeDestroy`
 ```
 
 ### onElementResize
@@ -136,11 +138,22 @@ dispose();
 // adds a method: onElementResize(el, cb) which will return a function to dispose it
 //
 // usage:
-dispose = this.onElementResize(el, function(){/*doSomethingOnElementResize;*/});
+dispose = this.onElementResize(el, function(){/*doSomethingOnElementResize*/})
 // remove your cb
-dispose();
+dispose()
+// all events will be automatically disposed on `beforeDestroy`
 ```
 
+### onWindowScroll
+```js
+// adds a method: onWindowScroll(cb) which will return a function to dispose it
+//
+// usage:
+dispose = this.onWindowScroll(function(){/*doSomethingOnWindowScroll*/})
+// remove your cb
+dispose()
+// all events will be automatically disposed on `beforeDestroy`
+```
 
 ### setCss
 ```js
@@ -148,12 +161,12 @@ dispose();
 // setCss(element,cssProperty, cssValue)
 //
 // usage:
-this.setCss(document.body,"overflow","hidden");
+this.setCss(document.body,"overflow","hidden")
 
 // remove overflow from style attribute
-this.setCss(document.body,"overflow");
+this.setCss(document.body,"overflow")
 // or
-this.setCss(document.body,"overflow", "");
+this.setCss(document.body,"overflow", "")
 ```
 
 ### dynamicCss
