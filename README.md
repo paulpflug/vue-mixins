@@ -27,28 +27,29 @@ components:
   ]
 ```
 ## List of mixins
-| Name | description |
-| ---: |  ------- |
-| [getViewportSize](https://github.com/paulpflug/vue-mixins/blob/master/src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
-| [onceDocument](https://github.com/paulpflug/vue-mixins/blob/master/src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
-| [onClick](https://github.com/paulpflug/vue-mixins/blob/master/src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set |
-| [onClickStack](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
-| [onClickStore](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below) |
-| [onDocument](https://github.com/paulpflug/vue-mixins/blob/master/src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself |
-| [onResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onResize.coffee) | deprecated |
-| [onWindowResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onWindowResize.coffee) | fires on resize of window |
-| [onElementResize](https://github.com/paulpflug/vue-mixins/blob/master/src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
-| [setCss](https://github.com/paulpflug/vue-mixins/blob/master/src/setCss.coffee) | set Css of another element |
-| [dynamicCss](https://github.com/paulpflug/vue-mixins/blob/master/src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
-| [getVue](https://github.com/paulpflug/vue-mixins/blob/master/src/getVue.coffee) | gets the instance of `Vue` |
-| [isOpened](https://github.com/paulpflug/vue-mixins/blob/master/src/isOpened.coffee) | adds everything for opened state management |
-| [parentListener](https://github.com/paulpflug/vue-mixins/blob/master/src/parentListener.coffee) | hooks a function upon parent click |
+| Name | src| description |
+| ---: | ---| ------- |
+| [getViewportSize](https://github.com/paulpflug/vue-mixins#getViewportSize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
+|[onceDocument](https://github.com/paulpflug/vue-mixins#onceDocument) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
+|[onClick](https://github.com/paulpflug/vue-mixins#onClick) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set |
+|[onClickStack](https://github.com/paulpflug/vue-mixins#onClickStack) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
+|[onClickStore](https://github.com/paulpflug/vue-mixins#onClickStore) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below) |
+|[onDocument](https://github.com/paulpflug/vue-mixins#onDocument) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself |
+|[onResize](https://github.com/paulpflug/vue-mixins#onResize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onResize.coffee) | deprecated |
+|[onWindowResize](https://github.com/paulpflug/vue-mixins#onWindowResize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onWindowResize.coffee) | fires on resize of window |
+|[onElementResize](https://github.com/paulpflug/vue-mixins#onElementResize) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
+|[setCss](https://github.com/paulpflug/vue-mixins#setCss) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/setCss.coffee) | set Css of another element |
+|[dynamicCss](https://github.com/paulpflug/vue-mixins#dynamicCss) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
+|[getVue](https://github.com/paulpflug/vue-mixins#getVue) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/getVue.coffee) | gets the instance of `Vue` |
+|[isOpened](https://github.com/paulpflug/vue-mixins#isOpened) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/isOpened.coffee) | adds everything for opened state management |
+|[parentListener](https://github.com/paulpflug/vue-mixins#parentListener) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/parentListener.coffee) | hooks a function upon parent click |
 
 ## Detailed usage
 ### getViewportSize
 ```js
 // adds a method:
 // getViewportSize()
+//
 // usage:
 vs = this.getViewportSize();
 vs.width
@@ -58,6 +59,7 @@ vs.height
 ```js
 // adds a method:
 // onceDocument(event, cb, useCapture)
+//
 // usage:
 dispose = this.onceDocument('click',function(e){
   doSomething()
@@ -70,6 +72,7 @@ dispose() // will remove the listener
 ```js
 // adds a method:
 // click(event) which will call this.onClick(e) if available
+//
 // usage:
 this.onClick = function(e) {doSomething()}
 ```
@@ -83,6 +86,7 @@ this.onClick = function(e) {doSomething()}
 // adds two methods:
 // - click(event) will call the last function in this.onClickStack if available
 // - addToClickStack(fn) will add a function to this.onClickStack and return a function to dispose it
+//
 // usage:
 var dispose = null
 var cb = function(e) {
@@ -101,6 +105,7 @@ dispose = this.addToClickStack(cb)
 // adds two methods:
 // - click(event) will call all functions in this.onClickStore
 // - onClick(fn) will add a function to this.onClickStore and return a function to dispose it
+//
 // usage:
 var dispose = null
 var cb = function(e) {
@@ -119,6 +124,7 @@ like `onceDocument`, but doesn't remove itself on first successful invokation.
 ### onWindowResize
 ```js
 // adds a method: onWindowResize(cb) which will return a function to dispose it
+//
 // usage:
 dispose = this.onWindowResize(function(){/*doSomethingOnElementResize;*/});
 // remove your cb
@@ -128,6 +134,7 @@ dispose();
 ### onElementResize
 ```js
 // adds a method: onElementResize(el, cb) which will return a function to dispose it
+//
 // usage:
 dispose = this.onElementResize(el, function(){/*doSomethingOnElementResize;*/});
 // remove your cb
@@ -139,6 +146,7 @@ dispose();
 ```js
 // adds a method:
 // setCss(element,cssProperty, cssValue)
+//
 // usage:
 this.setCss(document.body,"overflow","hidden");
 
@@ -153,6 +161,7 @@ this.setCss(document.body,"overflow", "");
 // used to create a stylesheet and set rules in it.
 // adds a method:
 // setCssRules(newRules)
+//
 // usage:
 this.setCssRules({body: {overflow: "hidden"}})
 // to remove a rule:
@@ -168,8 +177,45 @@ this.setCssRules({body: {overflow:"hidden"},"body div": {width: "10px"}})
 ```js
 // adds a method:
 // getVue()
+//
 // usage:
 Vue = this.getVue()
+```
+
+### isOpened
+```js
+// adda a boolean prop "isOpened" which will call "this.toggle()" on change
+//
+// adds two methods:
+// setOpened(), setClosed() which will set "this.isOpened" without triggering
+// the toggle
+//
+// usage:
+methods:
+  toggle: function(){
+    if (this.opened) {
+      this.close()
+    } else {
+      this.open()
+    }
+  }
+  open: function() {
+    this.setOpened()
+  }
+  close: function() {
+    this.setClosed()
+  }  
+```
+### parentListener
+```js
+// adda two props: "ignoreParent" and "parent", which
+// defaults to "this.$el.parentElement"
+//
+// usage:
+methods:
+  onParentClick: function() {
+    // will be called when "ignoreParent" is false on click on parent
+  }
 ```
 
 ## Develop
