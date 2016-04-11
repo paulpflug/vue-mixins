@@ -30,6 +30,7 @@ components:
 | Name | src| description |
 | ---: | ---| ------- |
 | [getViewportSize](https://github.com/paulpflug/vue-mixins#getviewportsize) | [link](src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
+| [getDocumentHeight](https://github.com/paulpflug/vue-mixins#getdocumentheight) | [link](src/getDocumentHeight.coffee) | adds a method `getDocumentHeight` which returns the `height` of the document |
 |[onceDocument](https://github.com/paulpflug/vue-mixins#oncedocument) | [link](src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
 |[onClick](https://github.com/paulpflug/vue-mixins#onclick) | [link](src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set |
 |[onClickStack](https://github.com/paulpflug/vue-mixins#onclickstack) | [link](src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
@@ -55,6 +56,14 @@ components:
 vs = this.getViewportSize()
 vs.width
 vs.height
+```
+### getDocumentHeight
+```js
+// adds a method:
+// getDocumentHeight()
+//
+// usage:
+height = this.getDocumentHeight()
 ```
 ### onceDocument
 ```js
