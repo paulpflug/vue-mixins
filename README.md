@@ -45,7 +45,7 @@ components:
 |[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [link](https://github.com/paulpflug/vue-mixins/blob/master/src/parentListener.coffee) | hooks a function upon parent click |
 
 ## Detailed usage
-### getViewportSize
+### getViewportSize <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method:
 // getViewportSize()
@@ -55,7 +55,7 @@ vs = this.getViewportSize();
 vs.width
 vs.height
 ```
-### onceDocument
+### onceDocument <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method:
 // onceDocument(event, cb, useCapture)
@@ -68,7 +68,7 @@ dispose = this.onceDocument('click',function(e){
   },false);
 dispose() // will remove the listener
 ```
-### onClick
+### onClick <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method:
 // click(event) which will call this.onClick(e) if available
@@ -81,7 +81,7 @@ this.onClick = function(e) {doSomething()}
 <div @click="click"></div>
 ```
 
-### onClickStack
+### onClickStack <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds two methods:
 // - click(event) will call the last function in this.onClickStack if available
@@ -100,7 +100,7 @@ dispose = this.addToClickStack(cb)
 <div @click="click"></div>
 ```
 
-### onClickStore
+### onClickStore <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds two methods:
 // - click(event) will call all functions in this.onClickStore
@@ -118,10 +118,10 @@ dispose = this.onClickStore(cb)
 <!-- in template -->
 <div @click="click"></div>
 ```
-### onDocument
+### onDocument <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 like `onceDocument`, but doesn't remove itself on first successful invokation.
 
-### onWindowResize
+### onWindowResize <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method: onWindowResize(cb) which will return a function to dispose it
 //
@@ -131,7 +131,7 @@ dispose = this.onWindowResize(function(){/*doSomethingOnElementResize;*/});
 dispose();
 ```
 
-### onElementResize
+### onElementResize <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method: onElementResize(el, cb) which will return a function to dispose it
 //
@@ -142,7 +142,7 @@ dispose();
 ```
 
 
-### setCss
+### setCss <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method:
 // setCss(element,cssProperty, cssValue)
@@ -156,7 +156,7 @@ this.setCss(document.body,"overflow");
 this.setCss(document.body,"overflow", "");
 ```
 
-### dynamicCss
+### dynamicCss <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // used to create a stylesheet and set rules in it.
 // adds a method:
@@ -173,7 +173,7 @@ this.setCssRules({body: {"& div": {width: "10px"},overflow:"hidden"}})
 this.setCssRules({body: {overflow:"hidden"},"body div": {width: "10px"}})
 ```
 
-### getVue
+### getVue <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adds a method:
 // getVue()
@@ -182,7 +182,7 @@ this.setCssRules({body: {overflow:"hidden"},"body div": {width: "10px"}})
 Vue = this.getVue()
 ```
 
-### isOpened
+### isOpened <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adda a boolean prop "isOpened" which will call "this.toggle()" on change
 //
@@ -206,7 +206,7 @@ methods:
     this.setClosed()
   }  
 ```
-### parentListener
+### parentListener <small>[top](https://github.com/paulpflug/vue-mixins#list-of-mixins)</small>
 ```js
 // adda two props: "ignoreParent" and "parent", which
 // defaults to "this.$el.parentElement"
