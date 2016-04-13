@@ -9,6 +9,7 @@ setCss = (el, name, value) ->
     for str in splitted
       if str
         [cssname,cssvalue] = str.split(":")
+        cssname = cssname.slice(1) if cssname[0] == ' '
         css[cssname] = cssvalue
     if value? and value != ""
       css[name] = value
