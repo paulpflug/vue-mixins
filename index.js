@@ -1,7 +1,9 @@
 vueMixins = {
   dynamicCss: require('./dynamicCss.js'),
+  getDocumentHeight: require('./getDocumentHeight.js'),
+  getViewportOffset: require('./getViewportOffset.js'),
   getViewportSize: require('./getViewportSize.js'),
-  getVue: require('./getVue.js'),
+  isOpened: require('./isOpened.js'),
   onceDocument: require('./onceDocument.js'),
   onClick: require('./onClick.js'),
   onClickStack: require('./onClickStack.js'),
@@ -10,10 +12,9 @@ vueMixins = {
   onElementResize: require('./onElementResize.js'),
   onWindowResize: require('./onWindowResize.js'),
   onWindowScroll: require('./onWindowScroll.js'),
-  setCss: require('./setCss.js'),
-  getViewportOffset: require('./getViewportOffset.js'),
-  isOpened: require('./isOpened.js'),
   parentListener: require('./parentListener.js'),
+  setCss: require('./setCss.js'),
+  vue: require('./vue.js'),
 }
 if (module.exports != null){
   module.exports = vueMixins

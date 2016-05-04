@@ -36,13 +36,14 @@ components:
 |[onClickStack](https://github.com/paulpflug/vue-mixins#onclickstack) | [link](src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
 |[onClickStore](https://github.com/paulpflug/vue-mixins#onclickstore) | [link](src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below) |
 |[onDocument](https://github.com/paulpflug/vue-mixins#ondocument) | [link](src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself |
-|[onResize](https://github.com/paulpflug/vue-mixins#onresize) | [link](src/onResize.coffee) | deprecated |
+|onResize | [link](src/onResize.coffee) | deprecated |
 |[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [link](src/onWindowResize.coffee) | fires on resize of window |
 |[onElementResize](https://github.com/paulpflug/vue-mixins#onelementresize) | [link](src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
 |[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [link](src/onWindowScroll.coffee) | fires on scroll on window |
 |[setCss](https://github.com/paulpflug/vue-mixins#setcss) | [link](src/setCss.coffee) | set Css of another element |
 |[dynamicCss](https://github.com/paulpflug/vue-mixins#dynamiccss) | [link](src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
-|[getVue](https://github.com/paulpflug/vue-mixins#getvue) | [link](src/getVue.coffee) | gets the instance of `Vue` |
+|getVue | [link](src/getVue.coffee) | deprecated, use `vue` instead |
+|[vue](https://github.com/paulpflug/vue-mixins#vue) | [link](src/vue.coffee) | adds a computed property `Vue` with the current instance of `Vue` |
 |[isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [link](src/isOpened.coffee) | adds everything for opened state management |
 |[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [link](src/parentListener.coffee) | hooks a function upon parent click |
 
@@ -195,13 +196,13 @@ this.setCssRules({body: {"& div": {width: "10px"},overflow:"hidden"}})
 this.setCssRules({body: {overflow:"hidden"},"body div": {width: "10px"}})
 ```
 
-### getVue
+### vue
 ```js
-// adds a method:
-// getVue()
+// adds a computed property:
+// Vue
 //
 // usage:
-Vue = this.getVue()
+Vue = this.Vue
 ```
 
 ### isOpened
