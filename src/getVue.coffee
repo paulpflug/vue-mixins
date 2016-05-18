@@ -4,8 +4,8 @@ module.exports =
   methods:
     'getVue': ->
       unless Vue?
-        if @$root.construtor? # is Vue instance
-          Vue = @$root.construtor
+        if @$root.constructor? # is Vue instance
+          Vue = @$root.constructor
         else # is Vue-Component instance
           Vue = Object.getPrototypeOf(Object.getPrototypeOf(@$root)).constructor
       return Vue
