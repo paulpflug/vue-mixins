@@ -46,6 +46,7 @@ components:
 |[vue](https://github.com/paulpflug/vue-mixins#vue) | [link](src/vue.coffee) | adds a computed property `Vue` with the current instance of `Vue` |
 |[isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [link](src/isOpened.coffee) | adds everything for opened state management |
 |[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [link](src/parentListener.coffee) | hooks a function upon parent click |
+|[fragToString](https://github.com/paulpflug/vue-mixins#fragToString) | [link](src/fragToString.coffee) | converts a `documentFragment` to `String` |
 
 ## Detailed usage
 ### getViewportSize
@@ -231,7 +232,7 @@ methods:
 ```
 ### parentListener
 ```js
-// adda two props: "ignoreParent" and "parent", which
+// adds two props: "ignoreParent" and "parent", which
 // defaults to "this.$el.parentElement"
 //
 // usage:
@@ -240,6 +241,14 @@ methods:
     // will be called when "ignoreParent" is false on click on parent
   }
 ```
+### fragToString
+```js
+// adds a method: "fragToString"
+// usage:
+str = this.fragToString(someFrag)
+// str contains outerHTML of someFrag
+```
+
 
 ## Develop
 Clone rep
