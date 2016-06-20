@@ -1,7 +1,7 @@
 {
   "name": "vue-mixins",
   "description": "collection of mixins in vue",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "homepage": "https://github.com/paulpflug/",
   "author": {
     "name": "Paul Pflugradt",
