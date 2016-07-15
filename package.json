@@ -16,7 +16,9 @@
   "engines": {
     "node": "*"
   },
-  "dependencies": {},
+  "dependencies": {
+    "javascript-detect-element-resize": "^0.5.3"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
