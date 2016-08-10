@@ -47,6 +47,8 @@ components:
 |[isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [link](src/isOpened.coffee) | adds everything for opened state management |
 |[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [link](src/parentListener.coffee) | hooks a function upon parent click |
 |[fragToString](https://github.com/paulpflug/vue-mixins#fragToString) | [link](src/fragToString.coffee) | converts a `documentFragment` to `String` |
+|[class](https://github.com/paulpflug/vue-mixins#class) | [link](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array |
+|[style](https://github.com/paulpflug/vue-mixins#style) | [link](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array |
 
 ## Detailed usage
 ### getViewportSize
@@ -248,7 +250,52 @@ methods:
 str = this.fragToString(someFrag)
 // str contains outerHTML of someFrag
 ```
-
+### class
+```js
+// adds a computed property: "computedClass"
+// which merges a "mergeClass" data object/array and a "class" prop.
+// usage:
+template: "<div :class=computedClass></div>",
+props: {
+  class: {
+    default: function() {
+      return ["someClass"]
+    }
+  }
+},
+data: function() {
+  return {
+    mergeClass: ["anotherClass"]
+  }
+}
+// computedClass will be ["anotherClass","someClass"] when no prop is given
+// if the component is used like this <comp :class="['yetAnotherClass']"></comp>
+// computedClass will be ["anotherClass","yetAnotherClass"]
+// works also with object notation and a mixture of both
+```
+### style
+```js
+// adds a computed property: "computedStyle"
+// which merges a "mergeStyle" data object and a "style" prop.
+// usage:
+template: "<div :style=computedStyle></div>",
+props: {
+  style: {
+    default: function() {
+      return {color:"red"}
+    }
+  }
+},
+data: function() {
+  return {
+    mergeStyle: {color:"blue"}
+  }
+}
+// computedStyle will be [{color:"blue"},{color:"red"}] when no prop is given
+// if the component is used like this <comp :style="{color:white}"></comp>
+// computedStyle will be [{color:"blue"},{color:"white"}]
+// works also with array notation and a mixture of both
+```
 
 ## Develop
 Clone rep
