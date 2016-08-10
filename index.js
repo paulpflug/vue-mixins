@@ -1,4 +1,5 @@
 vueMixins = {
+  class: require('./class.js'),
   dynamicCss: require('./dynamicCss.js'),
   getDocumentHeight: require('./getDocumentHeight.js'),
   getViewportOffset: require('./getViewportOffset.js'),
@@ -14,6 +15,7 @@ vueMixins = {
   onWindowScroll: require('./onWindowScroll.js'),
   parentListener: require('./parentListener.js'),
   setCss: require('./setCss.js'),
+  style: require('./style.js'),
   vue: require('./vue.js'),
 }
 if (module.exports != null){
