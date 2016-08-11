@@ -49,3 +49,12 @@ describe "class", ->
     comp.computedClass.a.should.be.true
     comp.computedClass.b.should.be.false
     comp.computedClass.c.should.be.true
+  it "should support plain class strings", ->
+    comp.class = "a b"
+    comp.mergeClass = "c d e"
+    comp.computedClass.length.should.equal 5
+    comp.computedClass[0].should.equal "c"
+    comp.computedClass[1].should.equal "d"
+    comp.computedClass[2].should.equal "e"
+    comp.computedClass[3].should.equal "a"
+    comp.computedClass[4].should.equal "b"

@@ -37,3 +37,10 @@ describe "style", ->
     comp.computedStyle.length.should.equal 2
     comp.computedStyle[0].d.should.be.true
     comp.computedStyle[1].should.equal "c"
+  it "should support plain style strings", ->
+    comp.style = "color:red"
+    comp.mergeStyle = "color:blue;font-size:10px"
+    comp.computedStyle.length.should.equal 2
+    comp.computedStyle[0].color.should.equal "blue"
+    comp.computedStyle[0]["font-size"].should.equal "10px"
+    comp.computedStyle[1].color.should.equal "red"
