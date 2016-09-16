@@ -14,8 +14,12 @@ module.exports =
       return name
   methods:
     processTransition: (value, parent = @$parent) ->
-      hooks = @Vue.util.resolveAsset(parent.$options,'transitions',value)
+      if value == "default"
+        hooks = @$options.transitions[value]
+      else
+        hooks = @Vue.util.resolveAsset(parent.$options,'transitions',value)
       if hooks?
+        return if hooks.modified
         newHooks =
           enterClass: hooks.enterClass
           leaveClass: hooks.leaveClass
@@ -25,6 +29,7 @@ module.exports =
 
       else
         newHooks = {}
+      newHooks.modified = true
       addHook = (name) =>
         eventName = @Vue.util.hyphenate(name)
         if hooks?[name]?
