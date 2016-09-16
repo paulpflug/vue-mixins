@@ -20,6 +20,9 @@ module.exports =
           enterClass: hooks.enterClass
           leaveClass: hooks.leaveClass
           leave: hooks.leave
+          enterCancelled: hooks.enterCancelled
+          leaveCancelled: hooks.leaveCancelled
+
       else
         newHooks = {}
       addHook = (name) =>
