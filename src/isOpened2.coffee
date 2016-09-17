@@ -9,11 +9,9 @@ module.exports =
   methods:
     setOpened: ->
       @opened = true
-      @isOpened = true
       @$emit "toggled", true
     setClosed: ->
       @opened = false
-      @isOpened = false
       @$emit "toggled", false
   watch:
     "isOpened": (val) ->

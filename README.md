@@ -27,29 +27,30 @@ components:
   ]
 ```
 ## List of mixins
-| Name | src| description |
-| ---: | ---| ------- |
-| [getViewportSize](https://github.com/paulpflug/vue-mixins#getviewportsize) | [src](src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport |
-| [getDocumentHeight](https://github.com/paulpflug/vue-mixins#getdocumentheight) | [src](src/getDocumentHeight.coffee) | adds a method `getDocumentHeight` which returns the `height` of the document |
-|[onceDocument](https://github.com/paulpflug/vue-mixins#oncedocument) | [src](src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
-|[onClick](https://github.com/paulpflug/vue-mixins#onclick) | [src](src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set |
-|[onClickStack](https://github.com/paulpflug/vue-mixins#onclickstack) | [src](src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack` |
-|[onClickStore](https://github.com/paulpflug/vue-mixins#onclickstore) | [src](src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below) |
-|[onDocument](https://github.com/paulpflug/vue-mixins#ondocument) | [src](src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself |
-|onResize | [src](src/onResize.coffee) | deprecated |
-|[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [src](src/onWindowResize.coffee) | fires on resize of window |
-|[onElementResize](https://github.com/paulpflug/vue-mixins#onelementresize) | [src](src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed |
-|[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [src](src/onWindowScroll.coffee) | fires on scroll on window |
-|[setCss](https://github.com/paulpflug/vue-mixins#setcss) | [src](src/setCss.coffee) | set Css of another element |
-|[dynamicCss](https://github.com/paulpflug/vue-mixins#dynamiccss) | [src](src/dynamicCss.coffee) | dynamically manipulate css stylesheet |
-|getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead |
-|[vue](https://github.com/paulpflug/vue-mixins#vue) | [src](src/vue.coffee) | adds a computed property `Vue` with the current instance of `Vue` |
-|[isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened.coffee) | adds everything for opened state management |
-|[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [src](src/parentListener.coffee) | hooks a function upon parent click |
-|[fragToString](https://github.com/paulpflug/vue-mixins#fragToString) | [src](src/fragToString.coffee) | converts a `documentFragment` to `String` |
-|[class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array |
-|[style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array |
-|[transition](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition.coffee) | used to manage user provided transition in a reusable component |
+Name | src| description
+---: | ---| -------
+[getViewportSize](https://github.com/paulpflug/vue-mixins#getviewportsize) | [src](src/getViewportSize.coffee) | adds a method `getViewportSize` which returns an object containing the `width` and `height` of the viewport
+[getDocumentHeight](https://github.com/paulpflug/vue-mixins#getdocumentheight) | [src](src/getDocumentHeight.coffee) | adds a method `getDocumentHeight` which returns the `height` of the document
+[onceDocument](https://github.com/paulpflug/vue-mixins#oncedocument) | [src](src/onceDocument.coffee) | adds a eventListener to the document which removes itself after first successful call|
+|[onClick](https://github.com/paulpflug/vue-mixins#onclick) | [src](src/onClick.coffee)  | adds a method `click` which will call the function `onClick` if set
+[onClickStack](https://github.com/paulpflug/vue-mixins#onclickstack) | [src](src/onClickStack.coffee)  | adds two methods: `click` and `addToClickStack`
+[onClickStore](https://github.com/paulpflug/vue-mixins#onclickstore) | [src](src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below)
+[onDocument](https://github.com/paulpflug/vue-mixins#ondocument) | [src](src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself
+onResize | [src](src/onResize.coffee) | deprecated
+[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [src](src/onWindowResize.coffee) | fires on resize of window
+[onElementResize](https://github.com/paulpflug/vue-mixins#onelementresize) | [src](src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed
+[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [src](src/onWindowScroll.coffee) | fires on scroll on window
+[setCss](https://github.com/paulpflug/vue-mixins#setcss) | [src](src/setCss.coffee) | set Css of another element
+[dynamicCss](https://github.com/paulpflug/vue-mixins#dynamiccss) | [src](src/dynamicCss.coffee) | dynamically manipulate css stylesheet
+getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
+[vue](https://github.com/paulpflug/vue-mixins#vue) | [src](src/vue.coffee) | adds a computed property `Vue` with the current instance of `Vue`
+[isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened.coffee) | adds everything for opened state management (two-way)
+[isOpened2](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened2.coffee) | adds everything for opened state management (one-way)
+[parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [src](src/parentListener.coffee) | hooks a function upon parent click
+[fragToString](https://github.com/paulpflug/vue-mixins#fragToString) | [src](src/fragToString.coffee) | converts a `documentFragment` to `String`
+[class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array
+[style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array
+[transition](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition.coffee) | used to manage user provided transition in a reusable component
 
 ## Detailed usage
 ### getViewportSize
@@ -211,11 +212,13 @@ Vue = this.Vue
 
 ### isOpened
 ```js
-// adda a boolean prop "isOpened" which will call "this.toggle()" on change
+// adds a boolean prop "isOpened" which will call "this.toggle()" on change
+// the state is saved on "opened"
 //
 // adds two methods:
 // setOpened(), setClosed() which will set "this.isOpened" without triggering
 // the toggle
+//  and emit a event "toggled(opened)"
 //
 // usage:
 methods:
