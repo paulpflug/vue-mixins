@@ -47,7 +47,7 @@ getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
 [isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened.coffee) | adds everything for opened state management (two-way)
 [isOpened2](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened2.coffee) | adds everything for opened state management (one-way)
 [parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [src](src/parentListener.coffee) | hooks a function upon parent click
-[fragToString](https://github.com/paulpflug/vue-mixins#fragToString) | [src](src/fragToString.coffee) | converts a `documentFragment` to `String`
+[fragToString](https://github.com/paulpflug/vue-mixins#fragtostring) | [src](src/fragToString.coffee) | converts a `documentFragment` to `String`
 [class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array
 [style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array
 [transition](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition.coffee) | used to manage user provided transition in a reusable component
