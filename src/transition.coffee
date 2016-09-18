@@ -24,6 +24,7 @@ module.exports =
           enterClass: hooks.enterClass
           leaveClass: hooks.leaveClass
           leave: hooks.leave
+          beforeEnter: hooks.beforeEnter
           enterCancelled: hooks.enterCancelled
           leaveCancelled: hooks.leaveCancelled
 
