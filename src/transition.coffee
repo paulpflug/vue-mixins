@@ -9,15 +9,16 @@ module.exports =
   computed:
     cTransition: ->
       name = @transition
-      name ?= "default"
+      name ?= if @transitionDefault then @transitionDefault else "default"
       @processTransition(name)
+      if @disableTransition
+        return null
       return name
   methods:
     processTransition: (value, parent = @$parent) ->
-      if value == "default"
-        hooks = @$options.transitions[value]
-      else
+      unless value == "default"
         hooks = @Vue.util.resolveAsset(parent.$options,'transitions',value)
+      hooks ?= @$options.transitions[value]
       if hooks?
         return if hooks.modified
         newHooks =
@@ -27,7 +28,6 @@ module.exports =
           beforeEnter: hooks.beforeEnter
           enterCancelled: hooks.enterCancelled
           leaveCancelled: hooks.leaveCancelled
-
       else
         newHooks = {}
       newHooks.modified = true

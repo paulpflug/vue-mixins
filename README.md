@@ -317,6 +317,10 @@ ready: function() {
 `processTransition(name,parent = this.$parent)` resolves `name` to the actual transition on
 `parent` vm or global Vue. Adds `before-enter`, `after-enter`, `before-leave` and `after-leave` emit hooks on the instance and inserts the modified transition into `this.$options.transitions[name]`  
 `cTransition` lazily calls `processTransition` on the first transition and every time `transition` changes.
+
+You can disable transition by setting `this.disableTransition = true`.
+
+You can set a default name by setting `this.transitionDefault = "YourDefaultTransition"`. This will be resolved in this sequence: globaly, on parent instance, on this instance.
 ## Develop
 Clone rep
 ```
