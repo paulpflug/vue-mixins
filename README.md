@@ -304,9 +304,15 @@ data: function() {
 ### transition
 used to manage user provided transition in a reusable component
 ```js
-// adds a method: "processTransition", a prop "transition" and a computed value "cTransition"
+// adds a method: "processTransition" and a computed value "cTransition"
 // usage:
 template: "<div :transition=cTransition></div>",
+props: {
+  transition: {
+    type: String,
+    default: "someDefaultTransition"
+ }
+},
 ready: function() {
   this.$on("before-enter",function(){
     // will be called after element is inserted in dom but before transition starts
@@ -315,12 +321,11 @@ ready: function() {
 }
 ```
 `processTransition(name,parent = this.$parent)` resolves `name` to the actual transition on
-`parent` vm or global Vue. Adds `before-enter`, `after-enter`, `before-leave` and `after-leave` emit hooks on the instance and inserts the modified transition into `this.$options.transitions[name]`  
+`parent` vm or global Vue. Adds `before-enter`, `after-enter`, `before-leave`, `after-leave`, `enterCancelled` and `leaveCancelled` emit hooks on the instance and inserts the modified transition into `this.$options.transitions[name]`  
 `cTransition` lazily calls `processTransition` on the first transition and every time `transition` changes.
 
 You can disable transition by setting `this.disableTransition = true`.
 
-You can set a default name by setting `this.transitionDefault = "YourDefaultTransition"`. This will be resolved in this sequence: globaly, on parent instance, on this instance.
 ## Develop
 Clone rep
 ```

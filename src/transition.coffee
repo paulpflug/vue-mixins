@@ -3,13 +3,10 @@ module.exports =
   mixins: [
     require("./vue")
   ]
-  props:
-    transition:
-      type: String
   computed:
     cTransition: ->
       name = @transition
-      name ?= if @transitionDefault then @transitionDefault else "default"
+      name ?= "default"
       @processTransition(name)
       if @disableTransition
         return null
