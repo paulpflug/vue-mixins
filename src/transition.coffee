@@ -26,8 +26,6 @@ module.exports =
           leaveClass: hooks.leaveClass
           leave: hooks.leave
           beforeEnter: hooks.beforeEnter
-          enterCancelled: hooks.enterCancelled
-          leaveCancelled: hooks.leaveCancelled
       else
         newHooks = {}
       newHooks.modified = true
@@ -42,7 +40,7 @@ module.exports =
           fn = (el) =>
             @$emit eventName
         newHooks[name] = fn
-      for hook in ["afterEnter","beforeLeave","afterLeave"]
+      for hook in ["afterEnter","beforeLeave","afterLeave","enterCancelled","leaveCancelled"]
         addHook(hook)
       if hooks?.enter? and hooks.enter.length == 2
         hook = hooks.enter
