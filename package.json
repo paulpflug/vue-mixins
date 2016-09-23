@@ -17,6 +17,7 @@
     "node": "*"
   },
   "dependencies": {
+    "lodash": "^4.16.1",
     "javascript-detect-element-resize": "^0.5.3"
   },
   "devDependencies": {
