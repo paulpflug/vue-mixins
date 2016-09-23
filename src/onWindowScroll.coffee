@@ -3,22 +3,7 @@ allScrollCbs = []
 callScrollCbs = ->
   for cb in allScrollCbs
     cb.apply(null,arguments)
-rAF = window.requestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.msRequestAnimationFrame
-
-cAF = window.cancelAnimationFrame ||
-      window.mozCancelAnimationFrame
-if rAF
-  lastRequest = null
-  window.addEventListener "scroll", ->
-    args = arguments
-    cAF(lastRequest)
-    lastRequest = rAF -> callScrollCbs.apply(null,args)
-else
-  throttle = require("lodash/throttle")
-  window.addEventListener "scroll", throttle(callScrollCbs,66)
+require("./_throttledListener")("scroll",callScrollCbs)
 
 
 module.exports =

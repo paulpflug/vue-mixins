@@ -3,25 +3,7 @@ allMouseMoveCbs = []
 callMouseMoveCbs = ->
   for cb in allMouseMoveCbs
     cb.apply(null,arguments)
-rAF = window.requestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.msRequestAnimationFrame
-
-cAF = window.cancelAnimationFrame ||
-      window.mozCancelAnimationFrame
-
-if rAF?
-  lastRequest = null
-  window.addEventListener "mousemove", ->
-    args = arguments
-    cAF(lastRequest)
-    lastRequest = rAF -> callMouseMoveCbs.apply(null,args)
-else
-  throttle = require("lodash/throttle")
-  window.addEventListener "mousemove", throttle(callMouseMoveCbs,66)
-
-
+require("./_throttledListener")("mousemove",callMouseMoveCbs)
 module.exports =
   data: ->
     mouseMoveCbDisposables: []

@@ -2,21 +2,15 @@
 
 hasMutationObserver = !!window.MutationObserver
 if hasMutationObserver
-  resizeRunning = false
+
   allResizeCbs = []
-  resizeHandler = ->
-    unless resizeRunning
-      resizeRunning = true
-      if window.requestAnimationFrame
-        window.requestAnimationFrame callResizeCbs
-      else
-        setTimeout callResizeCbs, 66
   callResizeCbs = (e) ->
     for cb in allResizeCbs
       cb(e)
     resizeRunning = false
-  window.addEventListener "resize", resizeHandler
-  observer = new MutationObserver resizeHandler
+  require("./_throttledListener")("resize",callResizeCbs)
+  throttle = require("lodash/throttle")
+  observer = new MutationObserver throttle(callResizeCbs,66)
   observer.observe document.body,
     attributes: true
     childList: true

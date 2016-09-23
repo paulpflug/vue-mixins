@@ -8,7 +8,7 @@
     "email": "paul.pflugradt@gmail.com"
   },
   "license": "MIT",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/paulpflug/vue-mixins"
@@ -49,8 +49,8 @@
     "build": "run-npm build:*",
     "watch": "karma start --browsers Chromium --auto-watch --reporters spec",
     "test": "karma start --single-run",
-    "preversion": "npm test",
-    "version": "npm run build && git add .",
+    "preversion": "npm test && npm run build",
+    "version": "git add .",
     "postversion": "git push && git push --tags && npm publish"
   }
 }
