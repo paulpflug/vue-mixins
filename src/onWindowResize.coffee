@@ -1,19 +1,25 @@
 # out: ../onWindowResize.js
-resizeRunning = false
 allResizeCbs = []
-resizeHandler = ->
-  unless resizeRunning
-    args = arguments
-    resizeRunning = true
-    if window.requestAnimationFrame
-      window.requestAnimationFrame -> callResizeCbs.apply(null,args)
-    else
-      setTimeout (-> callResizeCbs.apply(null,args)), 66
 callResizeCbs = ->
   for cb in allResizeCbs
     cb.apply(null,arguments)
   resizeRunning = false
-window.addEventListener "resize", resizeHandler
+rAF = window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame
+
+cAF = window.cancelAnimationFrame ||
+      window.mozCancelAnimationFrame
+if rAF
+  lastRequest = null
+  window.addEventListener "resize", ->
+    args = arguments
+    cAF(lastRequest)
+    lastRequest = rAF -> callResizeCbs.apply(null,args)
+else
+  throttle = require("lodash/throttle")
+  window.addEventListener "resize", throttle(callResizeCbs,66)
 
 module.exports =
   data: ->

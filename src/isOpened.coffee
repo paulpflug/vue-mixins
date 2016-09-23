@@ -5,7 +5,7 @@ module.exports =
       type: Boolean
       default: false
   data: ->
-    opened: @isOpened
+    opened: null
   methods:
     setOpened: ->
       @opened = true
@@ -19,3 +19,8 @@ module.exports =
     "isOpened": (val) ->
       if val != @opened
         @toggle()
+  ready: ->
+    if @isOpened
+      @disableTransition = true
+      @toggle()
+      @disableTransition = false

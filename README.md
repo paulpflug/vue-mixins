@@ -37,9 +37,9 @@ Name | src| description
 [onClickStore](https://github.com/paulpflug/vue-mixins#onclickstore) | [src](src/onClickStore.coffee)  | adds two methods: `click` and `onClick` (see below)
 [onDocument](https://github.com/paulpflug/vue-mixins#ondocument) | [src](src/onDocument.coffee)  | like `onceDocument` but doesn't removes itself
 onResize | [src](src/onResize.coffee) | deprecated
-[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [src](src/onWindowResize.coffee) | fires on resize of window
+[onWindowResize](https://github.com/paulpflug/vue-mixins#onwindowresize) | [src](src/onWindowResize.coffee) | fires on resize of window (throttled and bundled)
 [onElementResize](https://github.com/paulpflug/vue-mixins#onelementresize) | [src](src/onElementResize.coffee) | fires on resize of window or element, but only if the dimensions of the element changed
-[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [src](src/onWindowScroll.coffee) | fires on scroll on window
+[onWindowScroll](https://github.com/paulpflug/vue-mixins#onwindowscroll) | [src](src/onWindowScroll.coffee) | fires on scroll on window (throttled and bundled)
 [setCss](https://github.com/paulpflug/vue-mixins#setcss) | [src](src/setCss.coffee) | set Css of another element
 [dynamicCss](https://github.com/paulpflug/vue-mixins#dynamiccss) | [src](src/dynamicCss.coffee) | dynamically manipulate css stylesheet
 getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
@@ -51,6 +51,7 @@ getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
 [class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array
 [style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array
 [transition](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition.coffee) | used to manage user provided transition in a reusable component
+[onMouseMove](https://github.com/paulpflug/vue-mixins#onmousemove) | [src](src/onMouseMove.coffee) | fires on move of the mouse (throttled and bundled)
 
 ## Detailed usage
 ### getViewportSize
@@ -325,6 +326,17 @@ ready: function() {
 `cTransition` lazily calls `processTransition` on the first transition and every time `transition` changes.
 
 You can disable transition by setting `this.disableTransition = true`.
+
+### onMouseMove
+```js
+// adds a method: onMouseMove(cb) which will return a function to dispose it
+//
+// usage:
+dispose = this.onMouseMove(function(){/*doSomethingOnMouseMove*/})
+// remove your cb
+dispose()
+// all events will be automatically disposed on `beforeDestroy`
+```
 
 ## Develop
 Clone rep

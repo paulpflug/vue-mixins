@@ -1,19 +1,25 @@
 # out: ../onWindowScroll.js
-scrollRunning = false
 allScrollCbs = []
-scrollHandler = ->
-  unless scrollRunning
-    args = arguments
-    scrollRunning = true
-    if window.requestAnimationFrame
-      window.requestAnimationFrame -> callScrollCbs.apply(null,args)
-    else
-      setTimeout (-> callScrollCbs.apply(null,args)), 66
 callScrollCbs = ->
   for cb in allScrollCbs
     cb.apply(null,arguments)
-  scrollRunning = false
-window.addEventListener "scroll", scrollHandler
+rAF = window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame
+
+cAF = window.cancelAnimationFrame ||
+      window.mozCancelAnimationFrame
+if rAF
+  lastRequest = null
+  window.addEventListener "scroll", ->
+    args = arguments
+    cAF(lastRequest)
+    lastRequest = rAF -> callScrollCbs.apply(null,args)
+else
+  throttle = require("lodash/throttle")
+  window.addEventListener "scroll", throttle(callScrollCbs,66)
+
 
 module.exports =
   data: ->

@@ -4,7 +4,7 @@ module.exports = (config) ->
     webpack:
       devtool: 'inline-source-map'
       resolve:
-        extensions: ["",".js",".coffee"]
+        extensions: [".js",".coffee"]
       module:
         loaders: [
           { test: /\.coffee$/, loader: "coffee-loader" }
@@ -25,4 +25,4 @@ module.exports = (config) ->
       require("karma-chai-spies")
       require("karma-vue-component")
     ]
-    browsers: ["Chrome","Firefox"]
+    browsers: ["Chromium","Firefox"]
