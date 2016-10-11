@@ -45,8 +45,9 @@ onResize | [src](src/onResize.coffee) | deprecated
 getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
 [vue](https://github.com/paulpflug/vue-mixins#vue) | [src](src/vue.coffee) | adds a computed property `Vue` with the current instance of `Vue`
 [isOpened](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened.coffee) | adds everything for opened state management (two-way)
-[isOpened2](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened2.coffee) | adds everything for opened state management (one-way)
+[isOpened2](https://github.com/paulpflug/vue-mixins#isopened) | [src](src/isOpened2.coffee) | same as isOpened but for vue 2.0 (one-way)
 [parentListener](https://github.com/paulpflug/vue-mixins#parentlistener) | [src](src/parentListener.coffee) | hooks a function upon parent click
+[parentListener2](https://github.com/paulpflug/vue-mixins#parentlistener) | [src](src/parentListener2.coffee) | same as parentListener but for vue 2.0
 [fragToString](https://github.com/paulpflug/vue-mixins#fragtostring) | [src](src/fragToString.coffee) | converts a `documentFragment` to `String`
 [class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array
 [style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array

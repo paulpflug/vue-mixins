@@ -17,6 +17,6 @@ module.exports =
     "isOpened": (val) ->
       if val != @opened
         @toggle()
-  ready: ->
+  mounted: -> @$nextTick ->
     if @isOpened
       @toggle()
