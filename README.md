@@ -52,6 +52,7 @@ getVue | [src](src/getVue.coffee) | deprecated, use `vue` instead
 [class](https://github.com/paulpflug/vue-mixins#class) | [src](src/class.coffee) | used to create a properly merged vue class object/array from a given prop and another vue class object/array
 [style](https://github.com/paulpflug/vue-mixins#style) | [src](src/style.coffee) | used to create a properly merged vue style object/array from a given prop and another vue style object/array
 [transition](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition.coffee) | used to manage user provided transition in a reusable component
+[transition2](https://github.com/paulpflug/vue-mixins#transition) | [src](src/transition2.coffee) | same as transition but for vue 2.0
 [onMouseMove](https://github.com/paulpflug/vue-mixins#onmousemove) | [src](src/onMouseMove.coffee) | fires on move of the mouse (throttled and bundled)
 
 ## Detailed usage
