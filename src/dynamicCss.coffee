@@ -1,9 +1,10 @@
 # out: ../dynamicCss.js
-styletag = document.createElement('style')
-styletag.setAttribute 'id', 'vm-dynamic-css'
-styletag.setAttribute "type","text/css"
-document.head.appendChild styletag
-stylesheet = if styletag.sheet then styletag.sheet else styletag.styleSheet
+if document?
+  styletag = document.createElement('style')
+  styletag.setAttribute 'id', 'vm-dynamic-css'
+  styletag.setAttribute "type","text/css"
+  document.head.appendChild styletag
+  stylesheet = if styletag.sheet then styletag.sheet else styletag.styleSheet
 
 flatten = (obj,base="") ->
   tmp = {}

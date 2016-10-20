@@ -1,24 +1,25 @@
 # out: ../onResize.js
-resizeRunning = false
-allResizeCbs = []
-resizeHandler = ->
-  unless resizeRunning
-    resizeRunning = true
-    if window.requestAnimationFrame
-      window.requestAnimationFrame callResizeCbs
-    else
-      setTimeout callResizeCbs, 66
-callResizeCbs = (e) ->
-  for cb in allResizeCbs
-    cb(e)
+if window
   resizeRunning = false
-window.addEventListener "resize", resizeHandler
-observer = new MutationObserver resizeHandler
-observer.observe document.body,
-  attributes: true
-  childList: true
-  characterData: true
-  subtree: true
+  allResizeCbs = []
+  resizeHandler = ->
+    unless resizeRunning
+      resizeRunning = true
+      if window.requestAnimationFrame
+        window.requestAnimationFrame callResizeCbs
+      else
+        setTimeout callResizeCbs, 66
+  callResizeCbs = (e) ->
+    for cb in allResizeCbs
+      cb(e)
+    resizeRunning = false
+  window.addEventListener "resize", resizeHandler
+  observer = new MutationObserver resizeHandler
+  observer.observe document.body,
+    attributes: true
+    childList: true
+    characterData: true
+    subtree: true
 
 module.exports =
   data: ->
