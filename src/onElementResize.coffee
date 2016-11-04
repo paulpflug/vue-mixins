@@ -1,23 +1,25 @@
 # out: ../onElementResize.js
-
-hasMutationObserver = !!window.MutationObserver
-if hasMutationObserver
-
-  allResizeCbs = []
-  callResizeCbs = (e) ->
-    for cb in allResizeCbs
-      cb(e)
-    resizeRunning = false
-  require("./_throttledListener")("resize",callResizeCbs)
-  throttle = require("lodash/throttle")
-  observer = new MutationObserver throttle(callResizeCbs,66)
-  observer.observe document.body,
-    attributes: true
-    childList: true
-    characterData: true
-    subtree: true
-else
-  require "javascript-detect-element-resize"
+_hasMutationObserver = null
+hasMutationObserver = ->
+  if _hasMutationObserver == null
+    _hasMutationObserver = !!window.MutationObserver
+    if _hasMutationObserver
+      allResizeCbs = []
+      callResizeCbs = (e) ->
+        for cb in allResizeCbs
+          cb(e)
+        resizeRunning = false
+      require("./_throttledListener")("resize",callResizeCbs)
+      throttle = require("lodash/throttle")
+      observer = new MutationObserver throttle(callResizeCbs,66)
+      observer.observe document.body,
+        attributes: true
+        childList: true
+        characterData: true
+        subtree: true
+    else
+      require "javascript-detect-element-resize"
+  _hasMutationObserver
 
 module.exports =
   data: ->
@@ -25,7 +27,7 @@ module.exports =
   methods:
     onElementResize: (el,cb) ->
       return unless cb?
-      if hasMutationObserver
+      if hasMutationObserver()
         elheight = el.offsetHeight
         elwidth = el.offsetWidth
         cbwrapper = (e) ->
@@ -37,7 +39,7 @@ module.exports =
       else
         window.addResizeListener(el,cb)
       dispose = ->
-        if hasMutationObserver
+        if hasMutationObserver()
           index = allResizeCbs.indexOf cbwrapper
           if index > -1
             allResizeCbs.splice index,1
